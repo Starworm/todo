@@ -1,0 +1,21 @@
+<div class="container">
+  <h2 class="text-center">TO-DO List</h2>
+  <div class="info-buttons">
+    <h4 >Total tasks: {{itemList.length}}. Finished tasks: {{taskListDone}}</h4>
+    <div>
+      <button href="#" class="btn btn-outline-success m-2" (click)="newTask()">New Task</button>
+      <button href="#" class="btn btn-dark m-2" (click)="deleteAll()">Delete all tasks</button>
+    </div>
+  </div>
+  <ng-container *ngIf="itemList.length > 0; else noData">
+    <div class="item" *ngFor="let task of itemList">
+      <app-task-item [item]="task"
+                     (deleteEmitter)="deleteItem($event)"
+                     (doneEmitter)="getTask()">
+      </app-task-item>
+    </div>
+  </ng-container>
+  <ng-template #noData>
+    <h1>No tasks</h1>
+  </ng-template>
+</div>

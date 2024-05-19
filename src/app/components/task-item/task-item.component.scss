@@ -1,0 +1,32 @@
+@import "src/assets/vars";
+
+.card-custom {
+  box-shadow: 1px 1px 5px $color-task;
+}
+
+.task-done {
+  box-shadow: 1px 1px 5px $color-done;
+  animation-name: done;
+  animation-duration: 1s;
+}
+
+@keyframes done {
+  from {box-shadow: 1px 1px 5px $color-task;}
+  to {box-shadow: 1px 1px 5px $color-done;}
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.left,
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.task-content {
+  padding-left: 10px;
+  padding-right: 10px;
+}

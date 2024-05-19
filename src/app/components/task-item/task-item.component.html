@@ -1,0 +1,18 @@
+<div class="card w-100 mb-3"
+     [ngClass]="isDone ? 'task-done':'card-custom'">
+  <div class="card-body content">
+    <div class="left">
+      <input type="checkbox" class="btn-check"
+             [id]="item.id"
+             autocomplete="off"
+             (change)="taskDone(item.id)"
+      >
+      <label class="btn btn-outline-primary" [for]="item.id">done </label>
+      <p class="card-text p-2">{{item.content}}</p>
+    </div>
+    <div class="right">
+      <button [disabled]="item.isDone" href="#" class="btn btn-primary m-2" (click)="editTask(item)">Edit</button>
+      <a href="#" class="btn btn-danger" (click)="deleteTask(item.id)">Delete</a>
+    </div>
+  </div>
+</div>
